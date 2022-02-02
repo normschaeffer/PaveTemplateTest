@@ -1,0 +1,106 @@
+<MainGrid@GridLayout>:
+    size: root.width, root.height
+    cols: 1
+    rows: 3
+    # padding: 10
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        # use rectangle and source to add image to background
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "assets/CoEBackground-1800x1200.png"
+
+<Button>:
+    font_size: 42
+
+#<ToggleButton>:
+#    background_color: (0, 0, 0, 0)
+#    background_normal: ''
+#    background_down: "0, 1, 0, 0"
+#    canvas.before:
+#        Color:
+#            rgba: (180/255, 0/255, 0/255, 1)
+#        RoundedRectangle:
+#            size: self.size
+#            pos: self.pos
+#            radius: [12]
+
+
+<NavControlRow@GridLayout>
+    cols: 2
+
+# TODO: Adjust this based on screen width
+<NavControlLayout@BoxLayout>
+    orientation: "vertical"
+    size_hint: None, 1
+    width: 300
+    padding: 15
+    spacing: 15
+
+    HiddenButton:
+        text: "Home"
+        # on_press: app.root.current = "home"
+    NavButton:
+        text: "Lighting"
+        on_press: app.root.current = "lighting"
+        on_press: app
+    NavButton:
+        text: "Content"
+        on_press: self.Color: rgba (0/255, 255/255, 0/255, 1)
+        on_press: app.root.current = "content"
+    #HiddenButton:
+    #    text: "Camera Control"
+    #    # on_press: app.root.current = "cameracontrol"
+
+    ToggleButton:
+        background_color: 1, 0, 0, 1
+        background_normal: ''
+        text: "Power"
+        on_state: app.system_power(*args)
+
+
+<HiddenButton@Button>:
+    disabled: True
+    background_color: 0, 0, 0, 0  # set to transparent
+
+
+<NavButton@Button>:
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (180/255, 0/255, 0/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [36]
+
+<MedGrayButton@Button>:
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (127/255, 127/255, 127/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [36]
+
+
+<Header@GridLayout>:
+    id: Header
+    rows: 1
+    size_hint: 1, None
+    height: 270
+    Label:
+        id: room_information
+
+
+<Footer@GridLayout>:
+    rows: 1
+    size_hint: 1, None
+    height: 48
+    Label:
+        text: "Status Bar"

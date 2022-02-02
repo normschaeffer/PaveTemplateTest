@@ -1,0 +1,62 @@
+# Hidden buttons are used in this layout for spacing purposes
+
+<LightingLayout@GridLayout>:
+    cols: 3
+    rows: 4
+    spacing: 30
+    padding: 30
+
+    # row 1
+    ToggleButton:
+        id: studentLightsOn
+        text: "Student Lights On"
+        group: "student_lights"
+        on_press: app.student_lights_on()
+    ToggleButton:
+        id: studentLights50
+        text: "Student Lights 50%"
+        group: "student_lights"
+        on_press: app.student_lights_50()
+    ToggleButton:
+        id: studentLightsOff
+        text: "Student Lights Off"
+        group: "student_lights"
+        on_press: app.student_lights_off()
+
+    # row 2
+    ToggleButton:
+        id: instructorLightsOn
+        text: "Instr Lights On"
+        group: "instructor_lights"
+        on_press: app.instructor_lights_on()
+    HiddenButton:
+    ToggleButton:
+        id: instructorLightsOff
+        text: "Instr Lights Off"
+        group: "instructor_lights"
+        on_press: app.instructor_lights_off()
+    # row 3
+    ToggleButton:
+        id: wallWashOn
+        text: "Wall Wash On"
+        group: "wall_wash"
+        on_press: app.wall_wash_on()
+    HiddenButton:
+    ToggleButton:
+        id: wallWashOff
+        text: "Wall Wash Off"
+        group: "wall_wash"
+        on_press: app.wall_wash_off()
+
+    # row 4
+    ToggleButton:
+        id: allOn
+        text: "All On"
+        group: "room_lights_main"
+        on_press: app.all_lights_on()
+    HiddenButton:
+    ToggleButton:
+        id: roomEmpty
+        text: "Room Empty"
+        group: "room_lights_main"
+        on_press: app.room_empty()

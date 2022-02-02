@@ -1,0 +1,117 @@
+# --------------------------------------------------------------------------------------------------------
+#
+# The styles used within this window/screens layout kv file are found in the CoeBaseStyles kv file
+#
+# _________________________________________________________________________________________________________
+# Main Grid basic layout:
+#
+# +----------------------------------------------------+
+# |   Header Row                                       |
+# +-------+--------------------------------------------+
+# |       |                                            |
+# |       |                                            |
+# | Nav   |    Controls Area (Column 2)                |
+# | Area  |                                            |
+# | (Col  |                                            |
+# |   1)  |                                            |
+# |       |                                            |
+# +----------------------------------------------------+
+# |   Footer Row                                       |
+# +----------------------------------------------------+
+#
+#
+# Get the desired transition from kivy using the pattern in the statement below. (Include the #:import statement ...)
+# The WindowManager controls all screens and transitions between them. Include all screen layouts in the WindowManager.
+# --------------------------------------------------------------------------------------------------------
+
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+WindowManager:
+    id: "window_manager"
+    transition: NoTransition()
+    Home:
+    Lighting:
+    Content:
+    #CameraControl:
+
+# -------------------------------------- Home/Splash Screen ---------------------------------------------------------
+<Home>:
+    name: "home"
+
+    MainGrid:
+        # Row 1
+        Header:
+
+        # Row 2 - Navigation and Control
+
+        NavControlRow: # layout for the Navigation buttons and Individual screen controls; 2 column grid layout
+
+            # column 1
+            NavControlLayout:  # Navigation buttons on the left side of screen: located in CoeBaseStyles.kv
+
+            # column 2
+            SplashLayout:
+
+        # Row 3
+        Footer:
+
+# --------------------------------- Lighting control screen -----------------------------------------
+<Lighting>:
+    name: "lighting"
+    id: lighting_control_screen
+
+    MainGrid:
+        # Row 1
+        Header:
+
+        # Row 2 - Navigation and Control
+        NavControlRow:
+
+            # column 1 - place the navigation controls in the left column
+            NavControlLayout:
+
+            # column 2 - place the lighting controls in the control frame
+            LightingLayout:
+
+        # Row 3
+        Footer:
+
+# ---------------------------------- Content source screen ----------------------------------------
+<Content>:
+    name: "content"
+
+    MainGrid:
+        # Row 1
+        Header:
+
+        # Row 2 - Navigation and Control
+        NavControlRow:
+
+            # column 1 - place the navigation controls in the left column
+            NavControlLayout:
+
+            # column 2 - place the content selection controls in the control frame
+            ContentSourceLayout:
+
+        # Row 3
+        Footer:
+
+# ------------------------------------------ CameraControl --------------------------------------
+#<CameraControl>:
+#    name: "cameracontrol"
+#
+#    MainGrid:
+#        # Row 1
+#        Header:
+#
+#        # Row 2 - Navigation and Control
+#        NavControlRow:
+#
+#            # column 1 - place the navigation controls in the left column
+#            NavControlLayout:
+#
+#            # column 2 - place the PTZ controls in the control frame
+#            PtzLayout:
+#
+#        # Row #
+#        Footer:

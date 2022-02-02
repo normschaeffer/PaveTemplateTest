@@ -1,0 +1,35 @@
+<ContentSourceLayout@GridLayout>
+    cols: 5
+    rows: 3
+    padding: 25
+
+
+    # row 1 - "Blank"
+    HiddenButton:
+    HiddenButton:
+    HiddenButton:
+    HiddenButton:
+    HiddenButton:
+
+    # row 2
+    MedGrayButton:
+        id: pc_button
+        text: "PC"
+        on_press: app.pc_source()
+    HiddenButton:
+    MedGrayButton:
+        id: hdmi_button
+        text: "HDMI"
+        on_press: app.hdmi_source()
+    HiddenButton:
+    MedGrayButton:
+        id: airtame_button
+        text: "Airtame"
+        on_press: app.airtame_source()
+
+    # row 3 - "Blank"
+    HiddenButton:
+    HiddenButton:
+    HiddenButton:
+    HiddenButton:
+    HiddenButton:
